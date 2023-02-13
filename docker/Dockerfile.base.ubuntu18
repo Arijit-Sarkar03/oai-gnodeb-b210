@@ -52,9 +52,9 @@ RUN /bin/bash -c "if [[ -v NEEDED_GIT_PROXY ]]; then git config --global http.pr
 #create the WORKDIR
 WORKDIR /oai-ran
 COPY . .
-
+VOLUME temp /oai-ran/cmake_targets/log
 #run build_oai -I to get the builder image
 RUN /bin/sh oaienv && \ 
     cd cmake_targets && \
-    mkdir -p log
-#RUN    ./build_oai -I -w USRP --install-optional-packages
+    ./build_oai -I -w USRP --install-optional-packages && \
+    watch "ls -lrt log/| tail -10" 
