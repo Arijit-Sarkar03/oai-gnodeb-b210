@@ -6,7 +6,7 @@
 1. 
 ```
 sudo docker build . -f docker/Dockerfile.base.ubuntu18 -t ran-base:latest
-sudo docker run -it --name=gnb ran-base
+sudo docker run -it --name=gnb --privileged ran-base
 ```
 1. Inside container
 ```
