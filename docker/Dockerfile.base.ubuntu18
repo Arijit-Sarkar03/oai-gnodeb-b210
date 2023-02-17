@@ -27,7 +27,7 @@
 
 
 FROM ubuntu:bionic AS ran-base
-ARG NEEDED_GIT_PROXY
+ARG NEEDED_GIT_PROXY=http://172.27.10.67:3128
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Kolkata
 ENV BUILD_UHD_FROM_SOURCE=True
@@ -54,7 +54,6 @@ WORKDIR /oai-ran
 COPY . .
 VOLUME temp /oai-ran/cmake_targets/log
 #run build_oai -I to get the builder image
-#RUN /bin/sh oaienv && \ 
-#    cd cmake_targets && \
-#    ./build_oai -I -w USRP --install-optional-packages && \
-#    watch "ls -lrt log/| tail -10" 
+RUN /bin/sh oaienv && \ 
+    cd cmake_targets && \
+    ./build_oai -I -w USRP --install-optional-packages

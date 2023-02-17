@@ -8,6 +8,15 @@
 sudo docker build . -f docker/Dockerfile.base.ubuntu18 -t ran-base:latest
 sudo docker run -it --name=gnb --privileged ran-base
 ```
+For system behing proxy
+```
+sudo docker build --build-arg HTTP_PROXY=$http_proxy \
+	--build-arg HTTPS_PROXY=$http_proxy --build-arg NO_PROXY="$no_proxy" \
+	--build-arg http_proxy=$http_proxy --build-arg https_proxy=$http_proxy \
+	--build-arg no_proxy="$no_proxy" \
+	. -f docker/Dockerfile.base.ubuntu18 -t ran-base:latest
+```
+
 1. Inside container
 ```
 /bin/sh oaienv
