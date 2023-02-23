@@ -38,6 +38,6 @@ sudo docker build . -f docker/Dockerfile.gNB.ubuntu18 -t oai-gnb:latest
 ```
 ## Run with `docker compose`
 ```
-sudo docker compose -f ci-scripts/yaml_files/sa_b200_gnb/docker-compose.yml
+sudo docker compose -f ci-scripts/yaml_files/sa_b200_gnb/docker-compose.yml up
 
 ```
