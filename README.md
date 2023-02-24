@@ -41,9 +41,9 @@ sudo docker exec gnb tail -f /oai-ran/cmake_targets/log/uhd_install_log.txt
 	1. `sudo docker commit <containerID> <ImageName>`
 ### Build Ran-build
 ```
-sudo docker build . -f docker/Dockerfile.build.ubuntu18 -t ran-build:latest
+sudo docker build . -f docker/Dockerfile.build.ubuntu20 -t ran-build:latest
 # Build actual gnb-base
-sudo docker build . -f docker/Dockerfile.gNB.ubuntu18 -t oai-gnb:latest
+sudo docker build . -f docker/Dockerfile.gNB.ubuntu20 -t oai-gnb:latest
 ```
 ## Run with `docker run`
 ```
