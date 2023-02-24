@@ -9,7 +9,7 @@ services:
             USE_SA_TDD_MONO_B2XX: 'yes'
             USE_B2XX: 'yes'
             GNB_NAME: gNB-in-docker
-            MCC: '222'
+            MCC: '100'
             MNC: '01'
             MNC_LENGTH: 2
             TAC: 1

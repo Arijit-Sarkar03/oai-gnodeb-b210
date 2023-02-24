@@ -36,8 +36,31 @@ sudo docker build . -f docker/Dockerfile.build.ubuntu18 -t ran-build:latest
 # Build actual gnb-base
 sudo docker build . -f docker/Dockerfile.gNB.ubuntu18 -t oai-gnb:latest
 ```
+## Run with `docker run`
+```
+sudo docker run -it \
+	-v /dev:/dev \
+	--privileged \
+	-e USE_SA_TDD_MONO_B2XX: 'yes' \
+    -e USE_B2XX='yes' \
+    -e GNB_NAME='gNB-in-docker' \
+    -e MCC='100' \
+    -e MNC='01' \
+    -e MNC_LENGTH=2 \
+    -e TAC=1 \
+    -e NSSAI_SST=1 \
+    -e NSSAI_SD0=1 \
+    -e AMF_IP_ADDRESS='172.21.16.136' \
+    -e GNB_NGA_IF_NAME='eth0' \
+    -e GNB_NGA_IP_ADDRESS='192.168.68.194' \
+    -e GNB_NGU_IF_NAME='eth0' \
+    -e GNB_NGU_IP_ADDRESS='192.168.68.194' \
+    -e USE_ADDITIONAL_OPTIONS='--sa --RUs.[0].sdr_addrs serial=30C51D4 --continuous-tx --log_config.global_log_options level,nocolor,time,line_num,function'
+
+	oai-gnb:latest \
+	/bin/bash
+```
 ## Run with `docker compose`
 ```
 sudo docker compose -f ci-scripts/yaml_files/sa_b200_gnb/docker-compose.yml up
-
 ```
