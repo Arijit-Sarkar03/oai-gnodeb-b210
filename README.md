@@ -18,7 +18,6 @@ Rest of the steps should be performed inside `openairinterface5g` folder
 		Change `docker/Dockerfile.base.ubuntu20` line 30 `ARG NEEDED_GIT_PROXY`
 		```
 		sudo docker build . -f docker/Dockerfile.base.ubuntu20 -t ran-base:latest
-		sudo docker run -it --name=gnb --privileged ran-base
 		```
 	1. For systems behing proxy
 		Keep `docker/Dockerfile.base.ubuntu20` line 30 `ARG NEEDED_GIT_PROXY="http://172.27.10.67:3128"`
