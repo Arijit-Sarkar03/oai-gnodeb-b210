@@ -108,6 +108,10 @@ WORKDIR /opt/oai-gnb
 #EXPOSE 36422/udp # X2C, SCTP/UDP
 #EXPOSE 50000/udp # IF5 / ORI (control)
 #EXPOSE 50001/udp # IF5 / ECPRI (data)
+RUN python3 /opt/oai-gnb/bin/uhd_images_downloader.py -t b2xx
 
+#RUN /bin/bash -c /opt/oai-gnb/bin/entrypoint.sh
 ENTRYPOINT ["/opt/oai-gnb/bin/entrypoint.sh"]
-CMD ["/opt/oai-gnb/bin/nr-softmodem", "-O", "/opt/oai-gnb/etc/gnb.conf"]
+#CMD ["/opt/oai-gnb/bin/nr-softmodem", "-O", "/opt/oai-gnb/etc/gnb.conf"]
+CMD ["/bin/bash"]
+
