@@ -62,4 +62,8 @@ sudo docker run -it \
 ## Run with `docker compose`
 ```
 sudo docker compose -f ci-scripts/yaml_files/sa_b200_gnb/docker-compose.yml up
+<<<<<<< HEAD
+=======
+
+>>>>>>> a34d451c1ee767dfd21dab3e7aeb7d7d0a00f2e5
 ```
