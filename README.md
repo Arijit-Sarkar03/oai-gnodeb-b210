@@ -5,7 +5,7 @@
 ### Build Ran-base
 1. 
 ```
-sudo docker build . -f docker/Dockerfile.base.ubuntu18 -t ran-base:latest
+sudo docker build . -f docker/Dockerfile.base.ubuntu20 -t ran-base:latest
 sudo docker run -it --name=gnb --privileged ran-base
 ```
 For system behing proxy

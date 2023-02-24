@@ -8,9 +8,8 @@ services:
         environment:
             USE_SA_TDD_MONO_B2XX: 'yes'
             USE_B2XX: 'yes'
-            GNB_ID: "e00"
             GNB_NAME: gNB-in-docker
-            MCC: '100'
+            MCC: '222'
             MNC: '01'
             MNC_LENGTH: 2
             TAC: 1
@@ -27,9 +26,13 @@ services:
         networks:
             public_net:
                 ipv4_address: 192.168.68.194
-        #entrypoint: /bin/bash
-        #stdin_open: true 
-        #tty: true
+        #entrypoint: /bin/bash -c "sleep infinity"
+        healthcheck:
+            # pgrep does NOT work
+            test: /bin/bash -c "ps aux | grep -v grep | grep -c softmodem"
+            interval: 10s
+            timeout: 5s
+            retries: 5
 
 networks:
     public_net:
