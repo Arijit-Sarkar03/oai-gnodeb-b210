@@ -55,8 +55,7 @@ sudo docker run -it \
     -e GNB_NGA_IP_ADDRESS='192.168.68.194' \
     -e GNB_NGU_IF_NAME='eth0' \
     -e GNB_NGU_IP_ADDRESS='192.168.68.194' \
-    -e USE_ADDITIONAL_OPTIONS='--sa --RUs.[0].sdr_addrs serial=30C51D4 --continuous-tx --log_config.global_log_options level,nocolor,time,line_num,function'
-
+    -e USE_ADDITIONAL_OPTIONS='--sa --RUs.[0].sdr_addrs serial=30C51D4 --continuous-tx --log_config.global_log_options level,nocolor,time,line_num,function' \
 	oai-gnb:latest \
 	/bin/bash
 ```
