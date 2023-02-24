@@ -1,6 +1,15 @@
 # oai-gnodeb
-# Build with `docker build`
-
+## Download openairinterface
+### Git clone
+```
+git clone -b2023.w08 https://gitlab.eurecom.fr/oai/openairinterface5g/
+git clone https://github.com/subhrendu1987/oai-gnodeb
+```
+### merge the following folders after replacing common files
+```
+oai-gnodeb/docker/Dockerfile.* -->  openairinterface5g/docker/
+oai-gnodeb/ci-scripts/yaml_files/sa_b200_gnb/docker-compose.yml  --> openairinterface5g/ci-scripts/yaml_files/sa_b200_gnb/
+```
 ## Resolve docker dependency using stagewise build
 ### Build Ran-base
 1. 
