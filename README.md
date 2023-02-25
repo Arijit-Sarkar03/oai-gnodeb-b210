@@ -29,6 +29,7 @@ Rest of the steps should be performed inside `openairinterface5g` folder
 			--build-arg http_proxy=$http_proxy \
 			--build-arg https_proxy=$http_proxy \
 			--build-arg no_proxy="$no_proxy" \
+			----build-arg GIT_PROXY=$http_proxy \
 			. -f docker/Dockerfile.base.ubuntu20 \
 			-t ran-base:latest
 		```
