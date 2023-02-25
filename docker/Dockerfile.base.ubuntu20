@@ -27,7 +27,8 @@
 
 
 FROM ubuntu:focal AS ran-base
-ARG NEEDED_GIT_PROXY="http://172.27.10.67:3128"
+ARG NEEDED_GIT_PROXY
+
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/India
 ENV BUILD_UHD_FROM_SOURCE=True

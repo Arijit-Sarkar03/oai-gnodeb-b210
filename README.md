@@ -7,15 +7,16 @@ git clone https://github.com/subhrendu1987/oai-gnodeb
 ```
 ### merge the following folders after replacing common files
 ```
-oai-gnodeb/docker/Dockerfile.* -->  openairinterface5g/docker/
-oai-gnodeb/ci-scripts/yaml_files/sa_b200_gnb/docker-compose.yml  --> openairinterface5g/ci-scripts/yaml_files/sa_b200_gnb/
+cp -fv oai-gnodeb/docker/Dockerfile.base.ubuntu20 openairinterface5g/docker/Dockerfile.base.ubuntu20
+cp -fv oai-gnodeb/docker/Dockerfile.build.ubuntu20 openairinterface5g/docker/Dockerfile.build.ubuntu20
+cp -fv oai-gnodeb/docker/Dockerfile.gNB.ubuntu20 openairinterface5g/docker/Dockerfile.gNB.ubuntu20
+cp -fv oai-gnodeb/ci-scripts/yaml_files/sa_b200_gnb/docker-compose.yml openairinterface5g/ci-scripts/yaml_files/sa_b200_gnb/docker-compose.yml
 ```
 ## Resolve docker dependency using stagewise build
 Rest of the steps should be performed inside `openairinterface5g` folder
 ### Build Ran-base
 1.  Execute in the host system
 	1. Without proxy
-		Change `docker/Dockerfile.base.ubuntu20` line 30 `ARG NEEDED_GIT_PROXY`
 		```
 		sudo docker build . -f docker/Dockerfile.base.ubuntu20 -t ran-base:latest
 		```
@@ -29,7 +30,7 @@ Rest of the steps should be performed inside `openairinterface5g` folder
 			--build-arg http_proxy=$http_proxy \
 			--build-arg https_proxy=$http_proxy \
 			--build-arg no_proxy="$no_proxy" \
-			----build-arg GIT_PROXY=$http_proxy \
+			--build-arg NEEDED_GIT_PROXY=$http_proxy \
 			. -f docker/Dockerfile.base.ubuntu20 \
 			-t ran-base:latest
 		```
