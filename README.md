@@ -1,4 +1,5 @@
-# oai-gnodeb
+# oai-gnodeb in a docker
+[Architectural diagram](https://app.diagrams.net/#G1q0MFS9GiIhezv8m8cm3Iom4RxhzoIJfL)
 ## Download openairinterface
 ### Git clone
 ```
