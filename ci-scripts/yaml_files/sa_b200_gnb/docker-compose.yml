@@ -10,13 +10,13 @@ services:
             USE_B2XX: 'yes'
             GNB_ID: "e00"
             GNB_NAME: gNB-in-docker
-            MCC: '100'
+            MCC: '001'
             MNC: '01'
             MNC_LENGTH: 2
             TAC: 1
             NSSAI_SST: 1
-            NSSAI_SD0: 1
-            AMF_IP_ADDRESS: 172.21.16.136
+            NSSAI_SD: 1
+            AMF_IP_ADDRESS: 192.168.70.132
             GNB_NGA_IF_NAME: eth0
             GNB_NGA_IP_ADDRESS: 192.168.71.194
             GNB_NGU_IF_NAME: eth0
@@ -34,6 +34,7 @@ services:
 
 networks:
     public_net:
+        driver: bridge
         name: sa-b200-gnb-net
         ipam:
             config:
