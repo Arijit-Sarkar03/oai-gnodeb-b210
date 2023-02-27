@@ -48,10 +48,40 @@ Rest of the steps should be performed inside `openairinterface5g` folder
 	1. `sudo docker ps --filter "name=<container name>"`
 	1. `sudo docker commit <containerID> <ImageName>`
 ### Build Ran-build
-	```
+1. Without proxy
+	```	
 	sudo docker build . -f docker/Dockerfile.build.ubuntu20 -t ran-build:latest
-	# Build actual gnb-base
+	```
+1. With proxy
+	```
+	sudo docker build 
+		--build-arg HTTP_PROXY=$http_proxy \
+		--build-arg HTTPS_PROXY=$http_proxy \
+		--build-arg NO_PROXY="$no_proxy" \
+		--build-arg http_proxy=$http_proxy \
+		--build-arg https_proxy=$http_proxy \
+		--build-arg no_proxy="$no_proxy" \
+		--build-arg NEEDED_GIT_PROXY=$http_proxy \
+		. -f docker/Dockerfile.build.ubuntu20 \
+		-t ran-build:latest
+	```
+### Build oai-gnb
+1. Without proxy
+	```	
 	sudo docker build . -f docker/Dockerfile.gNB.ubuntu20 -t oai-gnb:latest
+	```
+1. With proxy
+	```
+	sudo docker build 
+		--build-arg HTTP_PROXY=$http_proxy \
+		--build-arg HTTPS_PROXY=$http_proxy \
+		--build-arg NO_PROXY="$no_proxy" \
+		--build-arg http_proxy=$http_proxy \
+		--build-arg https_proxy=$http_proxy \
+		--build-arg no_proxy="$no_proxy" \
+		--build-arg NEEDED_GIT_PROXY=$http_proxy \
+		. -f docker/Dockerfile.gNB.ubuntu20 \
+		-t oai-gnb:latest
 	```
 ## Run with `docker run`
 	```
