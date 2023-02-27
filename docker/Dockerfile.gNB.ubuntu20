@@ -35,7 +35,7 @@ RUN python3 ./docker/scripts/generateTemplate.py ./docker/scripts/gnb_parameters
 #start from scratch for target executable
 FROM ubuntu:focal as oai-gnb
 ENV DEBIAN_FRONTEND=noninteractive
-ENV TZ=Europe
+ENV TZ=Asia/Kolkata
 
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get upgrade --yes && \
@@ -114,6 +114,11 @@ WORKDIR /opt/oai-gnb
 #EXPOSE 50000/udp # IF5 / ORI (control)
 #EXPOSE 50001/udp # IF5 / ECPRI (data)
 
+# Load the USRP binaries
+RUN echo " Added from Entry Point \n == Load USRP binaries"
+RUN /opt/oai-gnb/bin/uhd_images_downloader.py -t b2xx
+RUN /opt/oai-gnb/bin/uhd_images_downloader.py -t x3xx
+#RUN /opt/oai-gnb/bin/uhd_images_downloader.py -t n3xx
 
 ENTRYPOINT ["/opt/oai-gnb/bin/entrypoint.sh"]
 CMD ["/opt/oai-gnb/bin/nr-softmodem", "-O", "/opt/oai-gnb/etc/gnb.conf"]

@@ -2,7 +2,7 @@
 ```
 sudo docker save -o ran-base_20.tar ran-base:20
 sudo docker save -o ran-build_20.tar ran-build:20
-sudo docker save -o oai-gnb_20.tar oai-gnb:20
+sudo docker save -o oai-gnb_20.tar oai-gnb:latest
 ```
 ## Spilt a file
 ```
