@@ -101,7 +101,7 @@ Rest of the steps should be performed inside `openairinterface5g` folder
 	    -e GNB_NGA_IP_ADDRESS='192.168.68.194' \
 	    -e GNB_NGU_IF_NAME='eth0' \
 	    -e GNB_NGU_IP_ADDRESS='192.168.68.194' \
-	    -e USE_ADDITIONAL_OPTIONS='--sa --RUs.[0].sdr_addrs serial=30C51D4 --continuous-tx --log_config.global_log_options level,nocolor,time,line_num,function' \
+	    -e USE_ADDITIONAL_OPTIONS='--sa --continuous-tx --log_config.global_log_options level,nocolor,time,line_num,function' \
 	    --entrypoint "/bin/bash" \
 		oai-gnb:latest \
 		--name sa-b200-gnb \
@@ -118,10 +118,17 @@ Edit `ci-scripts/yaml_files/sa_b200_gnb/docker-compose.yml` and modify the follo
 	`sudo docker compose -f ci-scripts/yaml_files/sa_b200_gnb/docker-compose.yml up -d`
 ### Test and debug
 1. `uhd_find_devices`
-1. ping test from GNB to AMF and AMF to GNB. If ping is not successfull, then check routing table
+1. ping test from GNB to AMF and AMF to GNB. If ping is not successfull, then check
+	1. Commands to be executed in Core-VM
+		```
+		sudo sysctl net.ipv4.ip_forward=1
+		sudo iptables -P FORWARD ACCEPT
+		sudo ip route add 192.168.71.194 via <GNB IP>
+	1. Check routing tables of `GNB Docker`, `GNB Baremetal`, `Core VM`, `Core Baremetal`
 ### Execute NR
 	1. `sudo docker attach sa-b200-gnb`
 	1. Inside docker 
 		1. `bash bin/entrypoint.sh`
-		1. `/opt/oai-gnb/bin/nr-softmodem -O /opt/oai-gnb/etc/gnb.conf $USE_ADDITIONAL_OPTIONS` 
+		1. `/opt/oai-gnb/bin/nr-softmodem -O /opt/oai-gnb/etc/gnb.conf $USE_ADDITIONAL_OPTIONS`
+	1. `sudo docker compose -f ci-scripts/yaml_files/sa_b200_gnb/docker-compose.yml down`
 
