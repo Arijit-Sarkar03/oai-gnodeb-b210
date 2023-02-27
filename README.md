@@ -1,9 +1,21 @@
 # oai-gnodeb in a docker
-[Architectural diagram](https://app.diagrams.net/#G1q0MFS9GiIhezv8m8cm3Iom4RxhzoIJfL)
+## Description
+The target [Architectural diagram](https://app.diagrams.net/#G1q0MFS9GiIhezv8m8cm3Iom4RxhzoIJfL) has two parts. (a) Virtualized 5G Core and (b) gNB docker. This tutorial is about how to create gNB docker. We have used Intel Core i7 systems along with Ettus B210. We have used Ubuntu 20.04 and we suggest use of same OS.
+## Docker installation
+We have used the following [Tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04) to install docker engine. Interested readers may go through the given tutorial to avoid `sudo` while using docker along with multiple other useful things.
+	```
+	sudo apt update
+	sudo apt install apt-transport-https ca-certificates curl software-properties-common
+	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+	sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+	apt-cache policy docker-ce
+	sudo apt install docker-ce
+	sudo systemctl status docker
+	```
 ### Git clone
-```
-git clone https://github.com/subhrendu1987/oai-gnodeb
-```
+	```
+	git clone https://github.com/subhrendu1987/oai-gnodeb
+	```
 ### Import oai-gnb
 	```	
 	cd oai-gnb-docker_ubuntu20 
