@@ -35,7 +35,7 @@ Rest of the steps should be performed inside `openairinterface5g` folder
 		```
 1. Track progress of installation in a separate terminal
 	```
-	sudo docker exec gnb tail -f /oai-ran/cmake_targets/log/uhd_install_log.txt
+	sudo docker exec gnb tail -f /oai-ran/cmake_targets/log/uhd_install_log.txt /oai-ran/cmake_targets/log/nr-softmodem.txt
 	```
 1. If build fails then debug inside container
 	```

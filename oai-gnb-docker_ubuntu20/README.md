@@ -1,8 +1,8 @@
 ## Save the dockers
 ```
-sudo docker save -o ran-base_18.tar ran-base:18
-sudo docker save -o ran-build_18.tar ran-build:18
-sudo docker save -o oai-gnb_18.tar oai-gnb:18
+sudo docker save -o ran-base_20.tar ran-base:20
+sudo docker save -o ran-build_20.tar ran-build:20
+sudo docker save -o oai-gnb_20.tar oai-gnb:20
 ```
 ## Spilt a file
 ```
