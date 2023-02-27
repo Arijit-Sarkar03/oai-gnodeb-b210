@@ -20,10 +20,9 @@ Rest of the steps should be performed inside `openairinterface5g` folder
 		```
 		sudo docker build . -f docker/Dockerfile.base.ubuntu20 -t ran-base:latest
 		```
-	1. For systems behing proxy
-		Keep `docker/Dockerfile.base.ubuntu20` line 30 `ARG NEEDED_GIT_PROXY="http://172.27.10.67:3128"`
+	1. With proxy
 		```
-		sudo docker build 
+		sudo docker build \
 			--build-arg HTTP_PROXY=$http_proxy \
 			--build-arg HTTPS_PROXY=$http_proxy \
 			--build-arg NO_PROXY="$no_proxy" \
@@ -54,7 +53,7 @@ Rest of the steps should be performed inside `openairinterface5g` folder
 	```
 1. With proxy
 	```
-	sudo docker build 
+	sudo docker build \
 		--build-arg HTTP_PROXY=$http_proxy \
 		--build-arg HTTPS_PROXY=$http_proxy \
 		--build-arg NO_PROXY="$no_proxy" \
@@ -72,7 +71,7 @@ Rest of the steps should be performed inside `openairinterface5g` folder
 	```
 1. With proxy
 	```
-	sudo docker build 
+	sudo docker build \
 		--build-arg HTTP_PROXY=$http_proxy \
 		--build-arg HTTPS_PROXY=$http_proxy \
 		--build-arg NO_PROXY="$no_proxy" \
