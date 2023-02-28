@@ -69,6 +69,7 @@ Edit `ci-scripts/yaml_files/sa_b200_gnb/docker-compose.yml` and modify the follo
 		sudo ip route add 192.168.71.194 via <GNB IP>
 		```
 	1. Check routing tables of `GNB Docker`, `GNB Baremetal`, `Core VM`, `Core Baremetal`
+	1. To test/debug/understand the nr-softmodem configurations use `/custom` folder version of `entrypoint.sh` script and `/custom/conf` configuration files.
 ### Execute NR
 	1. `sudo docker attach sa-b200-gnb` # Enter into the oai-gnb docker
 	1. Inside docker 
