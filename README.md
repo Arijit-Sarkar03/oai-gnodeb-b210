@@ -33,7 +33,7 @@ We have used the following [Tutorial](https://www.digitalocean.com/community/tut
 		-e USE_SA_TDD_MONO_B2XX='yes' \
 	    -e USE_B2XX='yes' \
 	    -e GNB_NAME='gNB-in-docker' \
-	    -e MCC='100' \
+	    -e MCC='001' \
 	    -e MNC='01' \
 	    -e MNC_LENGTH=2 \
 	    -e TAC=1 \
