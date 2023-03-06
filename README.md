@@ -1,6 +1,6 @@
 # oai-gnodeb in a docker
 ## Description
-The target [Architectural diagram](https://app.diagrams.net/#G1q0MFS9GiIhezv8m8cm3Iom4RxhzoIJfL) has two parts. (a) Virtualized 5G Core[^1] and (b) gNB docker. This tutorial is about how to create gNB docker. We have used Intel Core i7 systems along with Ettus B210. We have used Ubuntu 20.04 and we suggest use of same OS.
+The target [Architectural diagram](https://github.com/subhrendu1987/oaisetup/blob/main/BankOnWheelsPoster.drawio.pdf) has two parts. (a) Virtualized 5G Core[^1] and (b) gNB docker. This tutorial is about how to create gNB docker. We have used Intel Core i7 systems along with Ettus B210. We have used Ubuntu 20.04 and we suggest use of same OS.
 
 [^1]: For Virtualized 5G Core use [this](https://github.com/subhrendu1987/oai-core) repository.
 ## Docker installation
