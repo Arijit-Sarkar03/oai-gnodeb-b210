@@ -60,15 +60,15 @@ We have used the following [Tutorial](https://www.digitalocean.com/community/tut
 	```
 ## Execute with `docker compose`
 Edit `ci-scripts/yaml_files/sa_b200_gnb/docker-compose.yml` and modify the following variables as per the core specification:
-	1. `AMF_IP_ADDRESS`
-	1. `GNB_NGA_IP_ADDRESS`
-	1. `GNB_NGU_IP_ADDRESS`
-	1. `GNB_NGU_IP_ADDRESS`
-	1. `MCC`
-	1. `MNC`
+1. `AMF_IP_ADDRESS`
+2. `GNB_NGA_IP_ADDRESS`
+3. `GNB_NGU_IP_ADDRESS`
+4. `GNB_NGU_IP_ADDRESS`
+5. `MCC`
+6. `MNC`
 
 ### Start service
-	`sudo docker compose -f ci-scripts/yaml_files/sa_b200_gnb/docker-compose.yml up -d`
+	`cd ci-scripts/yaml_files/sa_b200_gnb/; sudo docker compose -f docker-compose.yml up -d`
 ### Test and debug
 1. `uhd_find_devices`
 1. ping test from `GNB` to `AMF` and `AMF` to `GNB`. If ping is not successfull, then try to debug
