@@ -79,21 +79,14 @@ Edit `ci-scripts/yaml_files/sa_b200_gnb/docker-compose.yml` and modify the follo
 6. `MNC`
 
 ### Start service
-	`cd ci-scripts/yaml_files/sa_b200_gnb/; sudo docker compose -f docker-compose.yml up -d`
-	### Execute NR
+1. `cd ci-scripts/yaml_files/sa_b200_gnb/; sudo docker compose -f docker-compose.yml up -d`
+2. Now Execute NR inside the container
 	1. `sudo docker attach sa-b200-gnb` # Enter into the oai-gnb docker
 	1. Inside docker 
 		1. `bash bin/entrypoint.sh`
 		1. `/opt/oai-gnb/bin/nr-softmodem -O /opt/oai-gnb/etc/gnb.conf $USE_ADDITIONAL_OPTIONS`
 	1. `sudo docker compose -f ci-scripts/yaml_files/sa_b200_gnb/docker-compose.yml down`
 files.
-### Execute NR after service start
-	1. `sudo docker attach sa-b200-gnb` # Enter into the oai-gnb docker
-	1. Inside docker 
-		1. `bash bin/entrypoint.sh`
-		1. `/opt/oai-gnb/bin/nr-softmodem -O /opt/oai-gnb/etc/gnb.conf $USE_ADDITIONAL_OPTIONS`
-	1. `sudo docker compose -f ci-scripts/yaml_files/sa_b200_gnb/docker-compose.yml down`
-	
 ### Test and debug
 1. `uhd_find_devices`
 1. ping test from `GNB` to `AMF` and `AMF` to `GNB`. If ping is not successfull, then try to debug
