@@ -98,3 +98,9 @@ files.
 		```
 	1. Check routing tables of `GNB Docker`, `GNB Baremetal`, `Core VM`, `Core Baremetal`
 	1. To test/debug/understand the nr-softmodem configurations use `/custom` folder version of `entrypoint.sh` script and `/custom/conf` configuration 
+### Test with Oai-Core-RTMP service
+1. Install Astra streaming studio in the UE
+2. Create a RTMP streaming service with it by tapping on the glob icon in right side pane. Use service name as RTMP and Profile name as oai-core
+	* Server IP: 192.168.70.141:1935/live
+	* Stream ID:	1935
+	* Save it and start the service using the play button 
