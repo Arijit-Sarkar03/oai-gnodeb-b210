@@ -35,11 +35,11 @@ We have used the following [Tutorial](https://www.digitalocean.com/community/tut
 	```
 ### Routing table adjustments
 1. ping test from `GNB` to `AMF` and `AMF` to `GNB`. If ping is not successfull, then try to debug
-	1. Commands to be executed in gNB to enable packet forwarding from Core to the external network via the `Core VM`
+	1. Commands to be executed in `gNB` to enable packet forwarding from Core to the external network via the `Core VM`
 		```
 		sudo sysctl net.ipv4.ip_forward=1
 		sudo iptables -P FORWARD ACCEPT
-		sudo ip route add 192.168.70.0 via <Bridge IP of Core VM>
+		sudo ip route add 192.168.70.128/26 via <Bridge IP of Core VM>
 		```
 	1. Check routing tables of `GNB Docker`, `GNB Baremetal`, `Core VM`, `Core Baremetal`
 	2. For ease of operations use the Google sheet [tool](https://docs.google.com/spreadsheets/d/1n9lvu_eg6hOtkR9DOmAPyxP7QXRWBrLoCCP3OOhmwyw/edit#gid=0)
