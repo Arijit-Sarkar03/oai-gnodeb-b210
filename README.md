@@ -47,27 +47,27 @@ We have used the following [Tutorial](https://www.digitalocean.com/community/tut
 ## Run with `docker run`
 	```
 	sudo docker run -it \
-		-v /dev:/dev \
-		--privileged \
-		-e USE_SA_TDD_MONO_B2XX='yes' \
-	    -e USE_B2XX='yes' \
-	    -e GNB_NAME='gNB-in-docker' \
-	    -e MCC='001' \
-	    -e MNC='01' \
-	    -e MNC_LENGTH=2 \
-	    -e TAC=1 \
-	    -e NSSAI_SST=1 \
-	    -e NSSAI_SD0=1 \
-	    -e AMF_IP_ADDRESS='172.21.16.136' \
-	    -e GNB_NGA_IF_NAME='eth0' \
-	    -e GNB_NGA_IP_ADDRESS='192.168.68.194' \
-	    -e GNB_NGU_IF_NAME='eth0' \
-	    -e GNB_NGU_IP_ADDRESS='192.168.68.194' \
-	    -e USE_ADDITIONAL_OPTIONS='--sa --continuous-tx --log_config.global_log_options level,nocolor,time,line_num,function' \
-	    --entrypoint "/bin/bash" \
-		oai-gnb:latest \
-		--name sa-b200-gnb \
-		/bin/bash
+            -v /dev:/dev \
+            --privileged \
+            -e USE_SA_TDD_MONO_B2XX='yes' \
+            -e USE_B2XX='yes' \
+            -e GNB_NAME='gNB-in-docker' \
+            -e MCC='001' \
+            -e MNC='01' \
+            -e MNC_LENGTH=2 \
+            -e TAC=1 \
+            -e NSSAI_SST=1 \
+            -e NSSAI_SD0=1 \
+            -e AMF_IP_ADDRESS='172.21.16.136' \
+            -e GNB_NGA_IF_NAME='eth0' \
+            -e GNB_NGA_IP_ADDRESS='192.168.68.194' \
+            -e GNB_NGU_IF_NAME='eth0' \
+            -e GNB_NGU_IP_ADDRESS='192.168.68.194' \
+            -e USE_ADDITIONAL_OPTIONS='--sa --continuous-tx --log_config.global_log_options level,nocolor,time,line_num,function' \
+            --entrypoint "/bin/bash" \
+            oai-gnb:latest \
+            --name sa-b310-gnb \
+            /bin/bash
 	```
 ## Execute with `docker compose`
 Edit `ci-scripts/yaml_files/sa_b200_gnb/docker-compose.yml` and modify the following variables as per the core specification:
