@@ -81,7 +81,7 @@ Edit `ci-scripts/yaml_files/sa_b200_gnb/docker-compose.yml` and modify the follo
 ### Start service
 1. `cd ci-scripts/yaml_files/sa_b200_gnb/; sudo docker compose -f docker-compose.yml up -d`
 2. Now Execute NR inside the container
-	1. `sudo docker attach sa-b200-gnb` # Enter into the oai-gnb docker
+	1. `sudo docker attach sa-b210-gnb` # Enter into the oai-gnb docker
 	1. Inside docker 
 		1. `bash bin/entrypoint.sh`
 		1. `/opt/oai-gnb/bin/nr-softmodem -O /opt/oai-gnb/etc/gnb.conf $USE_ADDITIONAL_OPTIONS`
@@ -100,7 +100,7 @@ files.
 	1. To test/debug/understand the nr-softmodem configurations use `/custom` folder version of `entrypoint.sh` script and `/custom/conf` configuration 
 ### Test with Oai-Core-RTMP service
 1. Install Astra streaming studio in the UE
-2. Create a RTMP streaming service with it by tapping on the glob icon in right side pane. Use service name as RTMP and Profile name as oai-core
+2. Create a RTMP streaming service with it by tapping on the globe icon in right side pane. Use service name as RTMP and Profile name as oai-core
 	* Server IP: 192.168.70.141:1935/live
-	* Stream ID:	1935
+	* Stream ID:	test
 	* Save it and start the service using the play button 
