@@ -66,7 +66,7 @@ We have used the following [Tutorial](https://www.digitalocean.com/community/tut
             -e USE_ADDITIONAL_OPTIONS='--sa --continuous-tx --log_config.global_log_options level,nocolor,time,line_num,function' \
             --entrypoint "/bin/bash" \
             oai-gnb:latest \
-            --name sa-b310-gnb \
+            --name sa-b210-gnb \
             /bin/bash
 	```
 ## Execute with `docker compose`
