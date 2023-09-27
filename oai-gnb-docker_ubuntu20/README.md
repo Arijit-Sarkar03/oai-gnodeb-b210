@@ -4,6 +4,11 @@ sudo docker save -o ran-base_20.tar ran-base:20
 sudo docker save -o ran-build_20.tar ran-build:20
 sudo docker save -o oai-gnb_20.tar oai-gnb:latest
 ```
+or 
+```
+sudo apt install pv
+docker save ran-base:20 | pv -s 500M > ran-base_20.tar
+```
 ## Spilt a file
 ```
 split --verbose -b99M oai-gnb_latest.tar oai-gnb_latest.tar.
